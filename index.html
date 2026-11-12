@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exambro CBT - Uji Coba TKA Bahasa Indonesia SD/MI 2026</title>
+  <title>Exambro CBT - UJI COBA TKA BAHASA INDONESIA SD / MI</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -48,12 +48,12 @@
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="font-bold text-sm sm:text-base tracking-wide">EXAMBRO TKA SD/MI 2026</h1>
+            <h1 class="font-bold text-sm sm:text-base tracking-wide">Exambro CBT - UJI COBA TKA BAHASA INDONESIA SD / MI</h1>
             <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
               ● SECURE MODE
             </span>
           </div>
-          <p class="text-xs text-slate-400">Mata Pelajaran: Bahasa Indonesia (30 Soal)</p>
+          <p class="text-xs text-slate-400">Mata Pelajaran: Bahasa Indonesia (50 Soal)</p>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
           <div class="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-semibold mb-2">
             Simulasi Tes Kemampuan Akademik 2026
           </div>
-          <h2 class="text-xl sm:text-2xl font-bold">Identitas Peserta Ujian</h2>
+          <h2 class="text-xl sm:text-2xl font-bold">BAHASA INDONESIA SD / MI</h2>
           <p class="text-blue-100 text-xs sm:text-sm mt-1">
             Lengkapi data diri Anda dengan benar. Data akan langsung tercatat di Google Spreadsheet sekolah/panitia.
           </p>
@@ -95,6 +95,16 @@
               <p class="font-semibold">URL Web App Google Apps Script belum diatur.</p>
               <p class="mt-0.5 text-amber-700">Klik tombol <button type="button" onclick="openConfigModal()" class="underline font-bold">⚙️ Pengaturan URL</button> di pojok kanan atas untuk menempelkan URL deployment Apps Script agar data terkirim otomatis ke Spreadsheet.</p>
             </div>
+          </div>
+
+          <!-- Aturan Mode Exambro dipindah ke atas sebelum Nama Lengkap -->
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
+            <p class="font-bold text-slate-800">🛡️ Aturan Mode Exambro:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <li>Waktu pengerjaan: <strong>90 Menit</strong> untuk <strong>50 Soal</strong>.</li>
+              <li>Terdiri dari Pilihan Ganda Sederhana (1-20), PGK MCMA (21-35), dan PGK Benar/Salah (36-50).</li>
+              <li>Dilarang berpindah tab/aplikasi selama ujian berlangsung (pelanggaran tercatat otomatis).</li>
+            </ul>
           </div>
 
           <div>
@@ -126,15 +136,6 @@
               <option value="Kelas 6">Kelas 6 (Umum)</option>
               <option value="Kelas 5">Kelas 5</option>
             </select>
-          </div>
-
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
-            <p class="font-bold text-slate-800">🛡️ Aturan Mode Exambro:</p>
-            <ul class="list-disc pl-4 space-y-1">
-              <li>Waktu pengerjaan: <strong>90 Menit</strong> untuk <strong>30 Soal</strong>.</li>
-              <li>Terdiri dari Pilihan Ganda Sederhana (1-10), PGK MCMA (11-20), dan PGK Benar/Salah (21-30).</li>
-              <li>Dilarang berpindah tab/aplikasi selama ujian berlangsung (pelanggaran tercatat otomatis).</li>
-            </ul>
           </div>
 
           <button type="submit" id="btn-mulai"
@@ -243,12 +244,12 @@
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
             <h3 class="font-bold text-sm text-slate-800">Navigasi Nomor Soal</h3>
             <span id="answered-counter" class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
-              0 / 30 Terjawab
+              0 / 50 Terjawab
             </span>
           </div>
 
-          <!-- Grid 30 Nomor -->
-          <div id="nav-grid" class="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-5 gap-2"></div>
+          <!-- Grid 50 Nomor -->
+          <div id="nav-grid" class="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-5 gap-2 max-h-80 overflow-y-auto pr-1"></div>
 
           <!-- Legenda Warna -->
           <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-[11px] text-slate-600">
@@ -321,15 +322,15 @@
           <div class="grid grid-cols-3 gap-3 text-center text-xs">
             <div class="p-3 rounded-xl bg-indigo-50 border border-indigo-100">
               <span class="text-indigo-600 font-semibold block">Bagian A (PG)</span>
-              <strong id="res-part-a" class="text-indigo-950 text-base">0/10</strong>
+              <strong id="res-part-a" class="text-indigo-950 text-base">0/20</strong>
             </div>
             <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
               <span class="text-purple-600 font-semibold block">Bagian B (MCMA)</span>
-              <strong id="res-part-b" class="text-purple-950 text-base">0/10</strong>
+              <strong id="res-part-b" class="text-purple-950 text-base">0/15</strong>
             </div>
             <div class="p-3 rounded-xl bg-teal-50 border border-teal-100">
               <span class="text-teal-600 font-semibold block">Bagian C (B/S)</span>
-              <strong id="res-part-c" class="text-teal-950 text-base">0/10</strong>
+              <strong id="res-part-c" class="text-teal-950 text-base">0/15</strong>
             </div>
           </div>
 
@@ -482,11 +483,19 @@
       3: {
         title: "TEKS 3 – PASAR SEHAT",
         content: "Pasar Sehat di Kecamatan Melati diadakan setiap Minggu pagi. Para pedagang menjual sayur, buah, ikan, dan makanan. Pasar itu memiliki tempat sampah di beberapa sudut. Pengelola pasar mengajak pedagang mengurangi kantong plastik. Pembeli dianjurkan membawa tas belanja sendiri. Selain itu, petugas membersihkan lorong pasar setelah kegiatan selesai. Pada suatu Minggu, hujan turun sebelum pasar dibuka. Beberapa bagian jalan menjadi becek. Petugas memasang papan peringatan agar pengunjung berjalan hati-hati. Pedagang juga membantu membersihkan genangan air. Pasar tetap ramai karena warga membutuhkan bahan makanan segar. Rina datang bersama ibunya pukul tujuh pagi. Mereka membawa dua tas kain dari rumah. Rina melihat seorang anak membuang bungkus makanan ke lantai. Ia mengingatkan anak itu untuk memakai tempat sampah. Anak tersebut mengambil kembali bungkusnya. Ia lalu membuang sampah pada tempatnya. Setelah berbelanja, Rina dan ibu pulang dengan berjalan kaki. Mereka senang karena pasar terlihat bersih. Pasar yang tertata membuat kegiatan jual beli terasa nyaman. Kebersihan pasar merupakan tanggung jawab semua orang."
+      },
+      4: {
+        title: "TEKS 4 – KERJA BAKTI DI SUNGAI JERNIH",
+        content: "Warga Kampung Harapan mengadakan kerja bakti membersihkan Sungai Jernih pada hari Sabtu pagi. Sungai itu mengalir di sepanjang tepi kampung dan menjadi sumber air irigasi sawah. Beberapa hari sebelumnya, hujan lebat membuat ranting pohon dan sampah plastik menyumbat aliran sungai. Ketua RT mengajak seluruh warga membawa peralatan seperti cangkul, sabit, dan karung sampah. Anak-anak ikut membantu mengumpulkan botol plastik di pinggir sungai. Ibu-ibu menyiapkan minuman hangat dan makanan ringan di pos ronda. Pak Budi bertugas mengarahkan warga agar bekerja dengan aman dan tidak terpeleset di batu sungai yang licin. Setelah tiga jam bekerja sama, aliran Sungai Jernih kembali lancar dan bersih. Warga sepakat memasang papan larangan membuang sampah di tepi sungai. Mereka sadar bahwa menjaga kebersihan sungai dapat mencegah banjir saat musim hujan."
+      },
+      5: {
+        title: "TEKS 5 – KOPERASI SEKOLAH SDN MERDEKA",
+        content: "SDN Merdeka memiliki koperasi sekolah yang dikelola oleh guru dan perwakilan siswa kelas lima dan enam. Koperasi itu buka setiap jam istirahat pertama dan kedua. Di sana tersedia buku tulis, pensil, penghapus, penggaris, dan seragam sekolah dengan harga terjangkau. Setiap hari, dua siswa bertugas secara bergantian membantu mencatat barang yang terjual. Siti dan Edo mendapat jadwal piket pada hari Rabu. Siti melayani pembeli dengan ramah dan teliti menghitung uang kembalian. Edo merapikan rak alat tulis dan mencatat barang yang hampir habis. Keuntungan koperasi digunakan untuk membeli perlengkapan kelas dan membantu siswa yang membutuhkan. Melalui kegiatan koperasi, siswa belajar tentang kejujuran, kerja sama, dan tanggung jawab sejak dini."
       }
     };
 
     const QUESTIONS = [
-      // BAGIAN A: PILIHAN GANDA SEDERHANA (1 - 10)
+      // BAGIAN A: PILIHAN GANDA SEDERHANA (1 - 20)
       {
         id: 1, type: "PG", passageId: 1,
         question: "Dalam teks 1, arti kata 'pengunjung' adalah ....",
@@ -597,10 +606,120 @@
         ],
         answer: "A"
       },
-
-      // BAGIAN B: PILIHAN GANDA KOMPLEKS (PGK MCMA: 11 - 20)
       {
-        id: 11, type: "MCMA", passageId: 1,
+        id: 11, type: "PG", passageId: 4,
+        question: "Kapan warga Kampung Harapan mengadakan kerja bakti membersihkan Sungai Jernih?",
+        options: [
+          { key: "A", text: "Minggu pagi" },
+          { key: "B", text: "Sabtu pagi" },
+          { key: "C", text: "Jumat sore" },
+          { key: "D", text: "Senin pagi" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 12, type: "PG", passageId: 4,
+        question: "Penyebab aliran Sungai Jernih tersumbat sebelum kerja bakti adalah ....",
+        options: [
+          { key: "A", text: "warga membangun jembatan baru" },
+          { key: "B", text: "ranting pohon dan sampah plastik terbawa hujan lebat" },
+          { key: "C", text: "air sungai mengering karena kemarau panjang" },
+          { key: "D", text: "banyak ikan besar berenang di sungai" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 13, type: "PG", passageId: 4,
+        question: "Arti kata 'irigasi' pada teks 4 adalah ....",
+        options: [
+          { key: "A", text: "pengairan sawah atau lahan pertanian" },
+          { key: "B", text: "pembuangan sampah rumah tangga" },
+          { key: "C", text: "tempat bermain anak-anak desa" },
+          { key: "D", text: "jalan setapak di pinggir kampung" }
+        ],
+        answer: "A"
+      },
+      {
+        id: 14, type: "PG", passageId: 4,
+        question: "Siapa yang bertugas mengarahkan warga agar bekerja dengan aman di sungai?",
+        options: [
+          { key: "A", text: "Ketua RT" },
+          { key: "B", text: "Anak-anak kampung" },
+          { key: "C", text: "Pak Budi" },
+          { key: "D", text: "Ibu-ibu pos ronda" }
+        ],
+        answer: "C"
+      },
+      {
+        id: 15, type: "PG", passageId: 4,
+        question: "Manfaat utama menjaga kebersihan sungai berdasarkan teks 4 adalah ....",
+        options: [
+          { key: "A", text: "menambah jumlah pedagang di kampung" },
+          { key: "B", text: "mencegah terjadinya banjir saat musim hujan" },
+          { key: "C", text: "membuat pos ronda menjadi lebih ramai" },
+          { key: "D", text: "mengurangi jumlah peralatan kerja bakti" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 16, type: "PG", passageId: 5,
+        question: "Kapan koperasi sekolah SDN Merdeka dibuka?",
+        options: [
+          { key: "A", text: "Sebelum bel masuk berbunyi" },
+          { key: "B", text: "Setelah pulang sekolah" },
+          { key: "C", text: "Setiap jam istirahat pertama dan kedua" },
+          { key: "D", text: "Hanya pada hari Rabu pagi" }
+        ],
+        answer: "C"
+      },
+      {
+        id: 17, type: "PG", passageId: 5,
+        question: "Tugas Edo saat piket koperasi sekolah pada hari Rabu adalah ....",
+        options: [
+          { key: "A", text: "menghitung uang kembalian pembeli" },
+          { key: "B", text: "merapikan rak alat tulis dan mencatat barang yang hampir habis" },
+          { key: "C", text: "membeli seragam sekolah ke pasar" },
+          { key: "D", text: "menjaga pintu gerbang sekolah" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 18, type: "PG", passageId: 5,
+        question: "Makna kata 'terjangkau' pada kalimat 'dengan harga terjangkau' dalam teks 5 adalah ....",
+        options: [
+          { key: "A", text: "sangat mahal dan sulit dibeli" },
+          { key: "B", text: "murah dan mampu dibeli oleh siswa" },
+          { key: "C", text: "diberikan secara gratis tanpa bayar" },
+          { key: "D", text: "diletakkan di rak paling tinggi" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 19, type: "PG", passageId: 5,
+        question: "Keuntungan koperasi SDN Merdeka dimanfaatkan untuk ....",
+        options: [
+          { key: "A", text: "liburan pengurus koperasi" },
+          { key: "B", text: "membeli perlengkapan kelas dan membantu siswa yang membutuhkan" },
+          { key: "C", text: "membangun taman baca desa" },
+          { key: "D", text: "membeli bibit cabai untuk halaman sekolah" }
+        ],
+        answer: "B"
+      },
+      {
+        id: 20, type: "PG", passageId: 5,
+        question: "Sikap Siti saat melayani pembeli di koperasi sekolah adalah ....",
+        options: [
+          { key: "A", text: "terburu-buru dan kurang teliti" },
+          { key: "B", text: "ramah dan teliti menghitung uang kembalian" },
+          { key: "C", text: "diam saja dan enggan membantu" },
+          { key: "D", text: "membiarkan pembeli mengambil barang sendiri" }
+        ],
+        answer: "B"
+      },
+
+      // BAGIAN B: PILIHAN GANDA KOMPLEKS (PGK MCMA: 21 - 35)
+      {
+        id: 21, type: "MCMA", passageId: 1,
         question: "Informasi yang sesuai dengan teks 1 adalah ....",
         options: [
           { key: "A", text: "Taman baca dibuka setiap Senin sampai Sabtu." },
@@ -611,7 +730,7 @@
         answer: ["A", "C", "D"]
       },
       {
-        id: 12, type: "MCMA", passageId: 1,
+        id: 22, type: "MCMA", passageId: 1,
         question: "Kegiatan yang dilakukan Bu Rani untuk menjaga taman baca adalah ....",
         options: [
           { key: "A", text: "Menyusun buku sesuai jenisnya." },
@@ -622,7 +741,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 13, type: "MCMA", passageId: 2,
+        id: 23, type: "MCMA", passageId: 2,
         question: "Pernyataan yang menunjukkan urutan perawatan tanaman cabai Lala adalah ....",
         options: [
           { key: "A", text: "Lala memeriksa pot setiap pagi." },
@@ -633,7 +752,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 14, type: "MCMA", passageId: 2,
+        id: 24, type: "MCMA", passageId: 2,
         question: "Sifat Lala yang dapat disimpulkan dari teks 2 adalah ....",
         options: [
           { key: "A", text: "sabar" },
@@ -644,7 +763,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 15, type: "MCMA", passageId: 2,
+        id: 25, type: "MCMA", passageId: 2,
         question: "Pernyataan yang benar tentang perubahan tanaman cabai adalah ....",
         options: [
           { key: "A", text: "Pada minggu pertama batangnya masih pendek." },
@@ -655,7 +774,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 16, type: "MCMA", passageId: 3,
+        id: 26, type: "MCMA", passageId: 3,
         question: "Informasi yang terdapat dalam teks 3 adalah ....",
         options: [
           { key: "A", text: "Pasar Sehat diadakan setiap Minggu pagi." },
@@ -666,7 +785,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 17, type: "MCMA", passageId: 3,
+        id: 27, type: "MCMA", passageId: 3,
         question: "Tindakan yang membantu menjaga kebersihan pasar adalah ....",
         options: [
           { key: "A", text: "Membuang sampah pada tempatnya." },
@@ -677,7 +796,7 @@
         answer: ["A", "B", "D"]
       },
       {
-        id: 18, type: "MCMA", passageId: 3,
+        id: 28, type: "MCMA", passageId: 3,
         question: "Alasan pasar tetap ramai meskipun hujan turun sebelum pasar dibuka adalah ....",
         options: [
           { key: "A", text: "Warga membutuhkan bahan makanan segar." },
@@ -688,7 +807,7 @@
         answer: ["A", "D"]
       },
       {
-        id: 19, type: "MCMA", passageId: null,
+        id: 29, type: "MCMA", passageId: null,
         question: "Pesan yang dapat diambil dari teks 1 dan teks 2 adalah ....",
         options: [
           { key: "A", text: "Kita perlu merawat sesuatu yang digunakan atau ditanam." },
@@ -699,8 +818,8 @@
         answer: ["A", "C"]
       },
       {
-        id: 20, type: "MCMA", passageId: null,
-        question: "Perilaku yang patut diteladani dari tokoh atau orang dalam ketiga teks adalah ....",
+        id: 30, type: "MCMA", passageId: null,
+        question: "Perilaku yang patut diteladani dari tokoh atau orang dalam teks 1, 2, dan 3 adalah ....",
         options: [
           { key: "A", text: "Dito melaporkan buku yang rusak." },
           { key: "B", text: "Lala merawat tanaman dengan teratur." },
@@ -709,10 +828,65 @@
         ],
         answer: ["A", "B", "C"]
       },
-
-      // BAGIAN C: PGK KATEGORI BENAR / SALAH (21 - 30)
       {
-        id: 21, type: "BS", passageId: 1,
+        id: 31, type: "MCMA", passageId: 4,
+        question: "Peran warga dalam kegiatan kerja bakti pada teks 4 adalah ....",
+        options: [
+          { key: "A", text: "Anak-anak mengumpulkan botol plastik di pinggir sungai." },
+          { key: "B", text: "Ibu-ibu menyiapkan minuman hangat dan makanan ringan." },
+          { key: "C", text: "Pak Budi membuang ranting pohon ke dalam sungai." },
+          { key: "D", text: "Ketua RT mengajak warga membawa peralatan kerja bakti." }
+        ],
+        answer: ["A", "B", "D"]
+      },
+      {
+        id: 32, type: "MCMA", passageId: 4,
+        question: "Peralatan yang dibawa warga saat kerja bakti membersihkan Sungai Jernih adalah ....",
+        options: [
+          { key: "A", text: "cangkul" },
+          { key: "B", text: "sabit" },
+          { key: "C", text: "karung sampah" },
+          { key: "D", text: "tikar baca" }
+        ],
+        answer: ["A", "B", "C"]
+      },
+      {
+        id: 33, type: "MCMA", passageId: 5,
+        question: "Barang-barang yang dijual di koperasi sekolah SDN Merdeka adalah ....",
+        options: [
+          { key: "A", text: "buku tulis dan pensil" },
+          { key: "B", text: "penghapus dan penggaris" },
+          { key: "C", text: "sayur dan ikan segar" },
+          { key: "D", text: "seragam sekolah" }
+        ],
+        answer: ["A", "B", "D"]
+      },
+      {
+        id: 34, type: "MCMA", passageId: 5,
+        question: "Nilai karakter yang dipelajari siswa melalui kegiatan koperasi sekolah pada teks 5 adalah ....",
+        options: [
+          { key: "A", text: "kejujuran" },
+          { key: "B", text: "kerja sama" },
+          { key: "C", text: "tanggung jawab" },
+          { key: "D", text: "kemalasan" }
+        ],
+        answer: ["A", "B", "C"]
+      },
+      {
+        id: 35, type: "MCMA", passageId: null,
+        question: "Persamaan nilai kebaikan yang terdapat pada teks 4 dan teks 5 adalah ....",
+        options: [
+          { key: "A", text: "Pentingnya kerja sama untuk kepentingan bersama." },
+          { key: "B", text: "Sikap tanggung jawab terhadap tugas dan lingkungan." },
+          { key: "C", text: "Keinginan mencari keuntungan pribadi sebanyak-banyaknya." },
+          { key: "D", text: "Kepedulian terhadap sesama warga atau teman sekolah." }
+        ],
+        answer: ["A", "B", "D"]
+      },
+
+      // BAGIAN C: PGK KATEGORI BENAR / SALAH (36 - 50)
+      {
+        id: 36, type: "BS", passageId: 1,
         question: "Berdasarkan teks 1, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Taman baca berada di dekat balai desa.",
@@ -722,7 +896,7 @@
         answer: ["B", "B", "S"]
       },
       {
-        id: 22, type: "BS", passageId: 1,
+        id: 37, type: "BS", passageId: 1,
         question: "Berdasarkan teks 1, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Dito menemukan buku dengan sampul robek.",
@@ -732,7 +906,7 @@
         answer: ["B", "S", "B"]
       },
       {
-        id: 23, type: "BS", passageId: 2,
+        id: 38, type: "BS", passageId: 2,
         question: "Berdasarkan teks 2, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Ayah mengajari Lala menyiram tanaman secukupnya.",
@@ -742,7 +916,7 @@
         answer: ["B", "S", "B"]
       },
       {
-        id: 24, type: "BS", passageId: 2,
+        id: 39, type: "BS", passageId: 2,
         question: "Berdasarkan teks 2, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Lala memindahkan pot saat hujan deras.",
@@ -752,7 +926,7 @@
         answer: ["B", "B", "B"]
       },
       {
-        id: 25, type: "BS", passageId: 3,
+        id: 40, type: "BS", passageId: 3,
         question: "Berdasarkan teks 3, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Pasar Sehat diadakan setiap Minggu pagi.",
@@ -762,7 +936,7 @@
         answer: ["B", "B", "S"]
       },
       {
-        id: 26, type: "BS", passageId: 3,
+        id: 41, type: "BS", passageId: 3,
         question: "Berdasarkan teks 3, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
         statements: [
           "Rina datang bersama ibunya pukul tujuh pagi.",
@@ -772,7 +946,7 @@
         answer: ["B", "S", "B"]
       },
       {
-        id: 27, type: "BS", passageId: null,
+        id: 42, type: "BS", passageId: null,
         question: "Perhatikan makna kata dan ungkapan berikut. Tentukan Benar atau Salah:",
         statements: [
           "Kata 'becek' pada teks 3 berkaitan dengan keadaan jalan yang basah dan berlumpur.",
@@ -782,7 +956,7 @@
         answer: ["B", "B", "S"]
       },
       {
-        id: 28, type: "BS", passageId: null,
+        id: 43, type: "BS", passageId: null,
         question: "Perhatikan kesimpulan berikut berdasarkan teks 1 dan teks 2. Tentukan Benar atau Salah:",
         statements: [
           "Menjaga buku bersama merupakan contoh tanggung jawab.",
@@ -792,7 +966,7 @@
         answer: ["B", "B", "S"]
       },
       {
-        id: 29, type: "BS", passageId: 3,
+        id: 44, type: "BS", passageId: 3,
         question: "Perhatikan penilaian terhadap isi teks 3. Tentukan Benar atau Salah:",
         statements: [
           "Judul 'Pasar Sehat dan Bersih' sesuai dengan isi teks.",
@@ -802,12 +976,62 @@
         answer: ["B", "S", "B"]
       },
       {
-        id: 30, type: "BS", passageId: null,
+        id: 45, type: "BS", passageId: null,
         question: "Perhatikan tanggapan terhadap perilaku tokoh dalam teks. Tentukan Benar atau Salah:",
         statements: [
           "Sikap Dito patut diteladani karena ia peduli pada buku.",
           "Tindakan Lala memindahkan pot saat hujan deras merupakan tindakan yang tepat.",
           "Perilaku membuang sampah ke lantai merupakan kebiasaan yang baik."
+        ],
+        answer: ["B", "B", "S"]
+      },
+      {
+        id: 46, type: "BS", passageId: 4,
+        question: "Berdasarkan teks 4, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
+        statements: [
+          "Sungai Jernih menjadi sumber air irigasi sawah warga.",
+          "Warga bekerja bakti selama tiga jam hingga aliran sungai kembali lancar.",
+          "Warga membiarkan sampah plastik menumpuk di tepi sungai."
+        ],
+        answer: ["B", "B", "S"]
+      },
+      {
+        id: 47, type: "BS", passageId: 4,
+        question: "Berdasarkan teks 4, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
+        statements: [
+          "Batu sungai bisa menjadi licin sehingga warga perlu bekerja dengan hati-hati.",
+          "Warga memasang papan larangan membuang sampah di tepi sungai.",
+          "Kerja bakti hanya diikuti oleh anak-anak saja."
+        ],
+        answer: ["B", "B", "S"]
+      },
+      {
+        id: 48, type: "BS", passageId: 5,
+        question: "Berdasarkan teks 5, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
+        statements: [
+          "Koperasi sekolah dikelola oleh guru dan perwakilan siswa kelas lima dan enam.",
+          "Siti dan Edo mendapat jadwal piket pada hari Sabtu.",
+          "Koperasi sekolah buka pada jam istirahat pertama dan kedua."
+        ],
+        answer: ["B", "S", "B"]
+      },
+      {
+        id: 49, type: "BS", passageId: 5,
+        question: "Berdasarkan teks 5, tentukan Benar atau Salah untuk setiap pernyataan berikut:",
+        statements: [
+          "Menghitung uang kembalian dengan teliti merupakan wujud sikap jujur.",
+          "Barang yang hampir habis tidak perlu dicatat oleh petugas piket.",
+          "Keuntungan koperasi digunakan untuk membantu siswa yang membutuhkan."
+        ],
+        answer: ["B", "S", "B"]
+      },
+      {
+        id: 50, type: "BS", passageId: null,
+        question: "Perhatikan kesimpulan umum dari seluruh bacaan (Teks 1–5). Tentukan Benar atau Salah:",
+        statements: [
+          "Kebersihan dan ketertiban lingkungan merupakan tanggung jawab bersama.",
+          "Siswa SD dapat melatih sikap tanggung jawab di rumah, sekolah, maupun masyarakat.",
+          "Sikap peduli terhadap lingkungan hanya perlu dilakukan saat ada perlombaan."
         ],
         answer: ["B", "B", "S"]
       }
@@ -1268,7 +1492,7 @@
         btn.className = cls;
       });
 
-      document.getElementById("answered-counter").textContent = `${answeredCount} / 30 Terjawab`;
+      document.getElementById("answered-counter").textContent = `${answeredCount} / ${QUESTIONS.length} Terjawab`;
     }
 
     // =========================================================================
@@ -1298,10 +1522,10 @@
         }
       } catch (err) {}
 
-      // Hitung Skor Berdasarkan Kunci Jawaban Dokumen
-      let skorA = 0; // Soal 1-10 (1 poin per soal)
-      let skorB = 0; // Soal 11-20 (1 poin jika seluruh pilihan tepat, atau proporsional)
-      let skorC = 0; // Soal 21-30 (1 poin jika 3 pernyataan tepat)
+      // Hitung Skor Berdasarkan Kunci Jawaban Dokumen (Total 50 Soal)
+      let skorA = 0; // Soal 1-20 (Pilihan Ganda Sederhana)
+      let skorB = 0; // Soal 21-35 (PGK MCMA)
+      let skorC = 0; // Soal 36-50 (PGK Benar/Salah)
 
       QUESTIONS.forEach(q => {
         const userAns = examState.answers[q.id];
@@ -1323,7 +1547,7 @@
       });
 
       const totalBenar = skorA + skorB + skorC;
-      const nilaiAkhir = Math.round((totalBenar / 30) * 100);
+      const nilaiAkhir = Math.round((totalBenar / QUESTIONS.length) * 100);
 
       let predikat = "Perlu Bimbingan";
       if (nilaiAkhir >= 90) predikat = "Sangat Baik (Istimewa)";
@@ -1339,9 +1563,9 @@
       document.getElementById("res-nama").textContent = examState.nama;
       document.getElementById("res-sekolah").textContent = examState.sekolah;
       document.getElementById("res-kelas").textContent = examState.kelas;
-      document.getElementById("res-part-a").textContent = `${skorA}/10`;
-      document.getElementById("res-part-b").textContent = `${skorB}/10`;
-      document.getElementById("res-part-c").textContent = `${skorC}/10`;
+      document.getElementById("res-part-a").textContent = `${skorA}/20`;
+      document.getElementById("res-part-b").textContent = `${skorB}/15`;
+      document.getElementById("res-part-c").textContent = `${skorC}/15`;
 
       // Kirim otomatis ke Spreadsheet
       const syncBox = document.getElementById("sync-status-box");
